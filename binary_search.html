@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4 style="color: orange; text-align: center;">Binary Search</h4>
+    <script>
+        BinarySearch = (arr,l,r,x) =>{
+            if (r>=l) {
+                let mid = Math.floor(l+(r-l)/2);
+                if (arr[mid]===x) {
+                    return x;
+                } else if(arr[mid]>x) {
+                    return BinarySearch(arr,l,mid-1,x);
+                }else{
+                    return BinarySearch(arr,mid+1,r,x);
+                }    
+            }else{
+                return false;
+            }
+            
+        }
+        let arr = [14,52,57,64,82,86,95]; 
+        let x = 57;
+        let n = arr.length-1;
+        result = BinarySearch(arr,0,n,x);
+        if (result === false) {
+            console.log(x+" Not Found");
+            document.write("<h1> Not Found</h1>")
+
+        } else {
+            console.log(result +" is at index "+arr.indexOf(result));
+            document.write("<h1> Found </h1>")
+        }
+    </script>
+</body>
+</html>
